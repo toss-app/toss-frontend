@@ -1,53 +1,46 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    Navigator,
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
+import TossFriends from './src/TossFriends';
+import TossEvent from './src/TossEvent';
+import TossTime from './src/TossTime';
+import TossLocation from './src/TossLocation';
 
 export default class TossApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
+    render() {
+        return (
+            <Navigator
+                initialRoute = {{
+                    id: 'TossFriends'
+                }}
+                renderScene = {
+                    this.navigatorRenderScene
+                }
+            />
+        );
+    }
+
+    navigatorRenderScene(route, navigator) {
+        switch (route.id) {
+            case 'TossFriends':
+                return (<TossFriends navigator={navigator} title="Toss Friends" />);
+            case 'TossEvent':
+                return(<TossEvent navigator={navigator} title="Toss Event" />);
+            case 'TossTime':
+                return(<TossTime navigator={navigator} title="Toss Time" />);
+            case 'TossLocation':
+                return(<TossLocation navigator={navigator} title="Toss Location" />);
+        }
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  
 });
 
 AppRegistry.registerComponent('TossApp', () => TossApp);
