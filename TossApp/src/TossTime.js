@@ -14,32 +14,21 @@ import {
 class TossTime extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.wrapper}>
                 <Text>
                     Third view. Should be able to type what the time is here. Button below.
                 </Text>
-                <TouchableHighlight onPress={this.onButtonPress.bind(this)}>
-                    <Text>
-                        Click to advance to TossLocation.
-                    </Text>
-                </TouchableHighlight>
             </View>
         );
-    }
-
-    onButtonPress() {
-        this.props.navigator.push({
-            id: 'TossLocation'
-        });
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
+    wrapper: {
         alignItems: 'center',
-        backgroundColor: '#ffffff'
+        backgroundColor: 'white',
+        flex: 1,
+        justifyContent: 'center'
     }
 });
 

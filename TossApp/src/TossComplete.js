@@ -1,6 +1,6 @@
 /*
-12/24/16
-contains view of event creation
+12/27/16
+anotha one
 */
 
 import React, { Component } from 'react';
@@ -11,13 +11,11 @@ import {
     View
 } from 'react-native';
 
-class TossEvent extends Component {
+class TossComplete extends Component {
     render() {
         return (
             <View style={styles.wrapper}>
-                <Text>
-                    Second view. Should be able to type what the event is here. Button below.
-                </Text>
+                <Text>Done.</Text>
             </View>
         );
     }
@@ -32,4 +30,4 @@ const styles = StyleSheet.create({
     }
 });
 
-module.exports = TossEvent;
+module.exports = TossComplete;
