@@ -1,8 +1,3 @@
-/*
-12/27/16
-welcome to toss
-*/
-
 import React, { Component } from 'react';
 import {
     StyleSheet,

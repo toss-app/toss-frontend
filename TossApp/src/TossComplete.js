@@ -1,8 +1,3 @@
-/*
-12/27/16
-anotha one
-*/
-
 import React, { Component } from 'react';
 import {
     StyleSheet,

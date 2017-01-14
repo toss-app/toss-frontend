@@ -1,8 +1,3 @@
-/*
-12/24/16
-navbar shrink
-*/
-
 import React, { Component } from 'react';
 import {
     StyleSheet,
@@ -16,11 +11,11 @@ class TossNavbar extends Component {
         return (
             <View style={styles.navbar}>
                 {this.props.doesBackExist ? (
-                    <TouchableHighlight onPress={this.props.onBackPress}>
+                    <TouchableHighlight activeOpacity={1} onPress={this.props.onBackPress}>
                         <Text style={styles.navbarBack}>Back</Text>
                     </TouchableHighlight>
                 ) : (
-                    <Text style={styles.navbarBack}></Text> //there's nothing here I'm just terrible at standardizing widths
+                    <Text style={styles.navbarBack}></Text>
                 )}
                 <Text style={styles.navbarTitle}>{this.props.title}</Text>
             </View>

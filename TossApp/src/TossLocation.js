@@ -1,8 +1,3 @@
-/*
-12/24/16
-contains view of event location
-*/
-
 import React, { Component } from 'react';
 import {
     StyleSheet,

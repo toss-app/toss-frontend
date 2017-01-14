@@ -1,29 +1,56 @@
-/*
-12/24/16
-contains view of friends and groups
-*/
-
 import React, { Component } from 'react';
 import {
+    ScrollView,
     StyleSheet,
     Text,
+    TextInput,
     TouchableHighlight,
     View
 } from 'react-native';
+import FriendsResults from './TossFriendsResults';
 
 class TossFriends extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            results: null,
+            searchQuery: ''
+        };
+    }
+
+    searchFriends(query) {
+        var results = [];
+        for (var i = 0; i < query.length; i++) {
+            results.push(<FriendsResults key={results.length}/>);
+        }
+        this.setState({
+            results: results,
+            searchQuery: query
+        });
+    }
+
+    // added ScrollView to push navbar to bottom
     render() {
         return (
             <View style={styles.wrapper}>
-                <Text>
-                    First view. Should show friends and groups. Button below.
-                </Text>
+                <TextInput autoFocus={true} onChangeText={(query) => this.searchFriends(query)} placeholder='Type here to search for friends...' style={styles.textInput}/>
+                {this.state.results}
+                <ScrollView>
+                </ScrollView>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    results: {
+        flex: 1,
+        flexDirection: 'row'
+    },
+    textInput: {
+        height: 40,
+        padding: 10
+    },
     wrapper: {
         alignItems: 'center',
         backgroundColor: 'white',
